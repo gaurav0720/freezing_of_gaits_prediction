@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freezing of Gaits Prediction</title>
+</head>
+<style>
+    table{
+        width: 100%;
+        border: 1px solid black;
+    }
+    
+    td{
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <h1>Freezing of Gaits Prediction</h1>
+    <hr>
+    <h3>Features being considered are:</h3>
+    <table>
+        <tr>
+            <td><b>lh_inferiorparietal</b></td>
+            <td><b>lh_inferiortemporal</b></td>
+            <td><b>lh_isthmuscingulate</b></td>
+            <td><b>lh_lateraloccipital</b></td>
+            <td><b>lh_lateralorbitofrontal</b></td>
+        </tr>
+        <tr>
+            <td><b>lh_middletemporal</b></td>
+            <td><b>lh_parahippocampal</b></td>
+            <td><b>lh_paracentral</b></td>
+            <td><b>lh_pericalcarine</b></td>
+            <td><b>lh_posteriorcingulate</b></td>
+        </tr>
+        <tr>
+            <td><b>lh_precuneus</b></td>
+            <td><b>lh_rostralanteriorcingulate</b></td>
+            <td><b>lh_rostralmiddlefrontal</b></td>
+            <td><b>lh_frontalpole</b></td>
+            <td><b>lh_temporalpole</b></td>
+        </tr>
+        <tr>
+            <td><b>rh_bankssts</b></td>
+            <td><b>rh_caudalmiddlefrontal</b></td>
+            <td><b>rh_isthmuscingulate</b></td>
+            <td><b>rh_lateralorbitofrontal</b></td>
+            <td><b>rh_parsopercularis</b></td>
+        </tr>
+        <tr>
+            <td><b>rh_pericalcarine</b></td>
+            <td><b>rh_postcentral</b></td>
+            <td><b>rh_rostralanteriorcingulate</b></td>
+            <td><b>rh_frontalpole</b></td>
+            <td><b>rh_temporalpole</b></td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="input_data"><b>Enter a list/array of features separated by comma & a space (, ):</b></label><br><br>
+        <textarea id="input_data" name="input_data" cols="100" rows="8" required placeholder="2.9214, 2.5169, 2.3826, 2.5065, 2.3158, 3.039, 2.5668, 2.0416, 2.6451, 1.9403, 2.5326, 1.8888, 2.5474, 1.9094, 2.1969, 3.5691, 2.6823, 2.6313, 2.3757, 3.8114, 2.8221, 3.0211, 2.081, 2.1254, 2.3542"></textarea><br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if result %}
+    {{ result }}
+    {% endif %}
+</body>
+</html>
